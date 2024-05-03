@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  outline: none;
+  color: white;
+}
+.conteiner {
+  width: 100%;
+  height: 100vh;
+  background-color: #807090;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.timer {
+  width: 600px;
+  height: 250px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 15px;
+  background-color: #2e143b;
+}
+.main {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+h1 {
+  font-size: 120px;
+}
+span {
+  font-size: 100px;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.mainbtn {
+  width: 120px;
+  height: 35px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background-color: #574261;
+}
+.minorbtn {
+  width: 100px;
+  background-color: #574261;
+  border: 1px solid white;
+  border-radius: 10px;
+  position: relative;
+}
+.minut,
+.second,
+.hour {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.mplus,
+.splus,
+.hplus {
+  top: 15px;
+}
+.mminus,
+.sminus,
+.hminus {
+  bottom: 15px;
+}
+.mainbtn:hover {
+  background-color: #e57cd9 !important;
+}
+.minorbtn:hover {
+  background-color: #e57cd9 !important;
+}
+.none {
+  display: none;
+}
+.anim {
+  animation: anim 2s linear infinite alternate;
+}
+@keyframes anim {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(-5deg);
+  }
+  20% {
+    transform: rotate(5deg);
+  }
+  30% {
+    transform: rotate(-5deg);
+  }
+  40% {
+    transform: rotate(5deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+  60% {
+    transform: rotate(5deg);
+  }
+  70% {
+    transform: rotate(-5deg);
+  }
+  80% {
+    transform: rotate(5deg);
+  }
+  90% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(5deg);
+  }
+}
+.foranim {
+  width: 300px;
+  height: 50px;
+  position: absolute;
+  top: 80%;
+  font-size: 20px;
+  background-color: #574261;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+.finish {
+  position: absolute;
+  font-size: 45px;
+  top: 65%;
+}

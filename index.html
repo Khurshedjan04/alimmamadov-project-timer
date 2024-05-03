@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="conteiner">
+      <div class="timer">
+        <div class="main">
+          <div class="hour">
+            <button class="hplus minorbtn">
+              <i class="bx bx-chevron-up"></i>
+            </button>
+            <h1 class="hours">00</h1>
+            <button class="hminus minorbtn">
+              <i class="bx bx-chevron-down"></i>
+            </button>
+          </div>
+          <span>:</span>
+          <div class="minut">
+            <button class="mplus minorbtn">
+              <i class="bx bx-chevron-up"></i>
+            </button>
+            <h1 class="minutes">00</h1>
+            <button class="mminus minorbtn">
+              <i class="bx bx-chevron-down"></i>
+            </button>
+          </div>
+          <span>:</span>
+          <div class="second">
+            <button class="splus minorbtn">
+              <i class="bx bx-chevron-up"></i>
+            </button>
+            <h1 class="seconds">00</h1>
+            <button class="sminus minorbtn">
+              <i class="bx bx-chevron-down"></i>
+            </button>
+          </div>
+        </div>
+        <div class="buttons">
+          <button class="start mainbtn">Start</button>
+          <button class="pause resume none mainbtn">Pause</button>
+          <button class="cencel mainbtn">Cencel</button>
+          <h1 class="finish none">Timer reached zero!</h1>
+        </div>
+      </div>
+      <button class="foranim none mainbtn">Tap here to stop</button>
+    </div>
+    <script src="./main.js"></script>
+  </body>
+</html>
