@@ -256,7 +256,7 @@ pauseResume.addEventListener("click", () => {
       ss.style.strokeDashoffset = 570 - (570 * s) / 60;
       sdot.style.transform = `rotate(${s * 6}deg)`;
       mdot.style.transform = `rotate(${m * 6}deg)`;
-      hdot.style.transform = `rotate(${h * 12}deg)`;
+      hdot.style.transform = `rotate(${h * 30}deg)`;
     }, 1000);
     minorbtn.forEach((btn) => btn.classList.add("none"));
     Isrunning = true;
