@@ -12,9 +12,18 @@
   </head>
   <body>
     <div class="conteiner">
+      <div class="version">
+        <div class="mainVersion inner">Simple Version</div>
+        <div class="secondVersion inner">Circle Version</div>
+      </div>
       <div class="timer">
         <div class="main">
-          <div class="hour">
+          <div id="numbers" class="hour">
+            <div class="dotsss hdot"></div>
+            <svg>
+              <circle cx="70" cy="70" r="90"></circle>
+              <circle id="hour" cx="70" cy="70" r="90"></circle>
+            </svg>
             <button class="hplus minorbtn">
               <i class="bx bx-chevron-up"></i>
             </button>
@@ -23,8 +32,14 @@
               <i class="bx bx-chevron-down"></i>
             </button>
           </div>
-          <span>:</span>
-          <div class="minut">
+          <span class="dots">:</span>
+          <div id="numbers" class="minut">
+            <div class="dotsss mdot"></div>
+
+            <svg>
+              <circle cx="70" cy="70" r="90"></circle>
+              <circle id="minute" cx="70" cy="70" r="90"></circle>
+            </svg>
             <button class="mplus minorbtn">
               <i class="bx bx-chevron-up"></i>
             </button>
@@ -33,8 +48,13 @@
               <i class="bx bx-chevron-down"></i>
             </button>
           </div>
-          <span>:</span>
-          <div class="second">
+          <span class="dots">:</span>
+          <div id="numbers" class="second">
+            <div class="dotsss" id="sdot"></div>
+            <svg>
+              <circle cx="70" cy="70" r="90"></circle>
+              <circle id="second" cx="70" cy="70" r="90"></circle>
+            </svg>
             <button class="splus minorbtn">
               <i class="bx bx-chevron-up"></i>
             </button>
@@ -48,7 +68,7 @@
           <button class="start mainbtn">Start</button>
           <button class="pause resume none mainbtn">Pause</button>
           <button class="cencel mainbtn">Cencel</button>
-          <h1 class="finish none">Timer reached zero!</h1>
+          <h1 class="finish none">Clockwise reached zero!</h1>
         </div>
       </div>
       <button class="foranim none mainbtn">Tap here to stop</button>

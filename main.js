@@ -48,6 +48,7 @@ secondPlus.addEventListener("click", () => {
   minutes.innerHTML = setZero(m);
   hours.innerHTML = setZero(h);
   startIsDisabled = false;
+  Isrunning = false;
 });
 minutPlus.addEventListener("click", () => {
   m++;
@@ -58,11 +59,13 @@ minutPlus.addEventListener("click", () => {
   minutes.innerHTML = setZero(m);
   hours.innerHTML = setZero(h);
   startIsDisabled = false;
+  Isrunning = false;
 });
 hourPlus.addEventListener("click", () => {
   h++;
   hours.innerHTML = setZero(h);
   startIsDisabled = false;
+  Isrunning = false;
 });
 secondMinus.addEventListener("click", () => {
   if (s > 0) {
@@ -85,6 +88,8 @@ secondMinus.addEventListener("click", () => {
   minutes.innerHTML = setZero(m);
   hours.innerHTML = setZero(h);
   checkFigrures(s, m, h);
+  startIsDisabled = false;
+  Isrunning = false;
 });
 minutMinus.addEventListener("click", () => {
   if (m > 0) {
@@ -100,6 +105,8 @@ minutMinus.addEventListener("click", () => {
   minutes.innerHTML = setZero(m);
   hours.innerHTML = setZero(h);
   checkFigrures(s, m, h);
+  startIsDisabled = false;
+  Isrunning = false;
 });
 hourMinus.addEventListener("click", () => {
   if (h > 0) {
@@ -109,6 +116,8 @@ hourMinus.addEventListener("click", () => {
   }
   hours.innerHTML = setZero(h);
   checkFigrures(s, m, h);
+  startIsDisabled = false;
+  Isrunning = false;
 });
 start.addEventListener("click", () => {
   if (!startIsDisabled) {
@@ -132,7 +141,22 @@ start.addEventListener("click", () => {
             pauseResume.classList.add("none");
             cencel.classList.add("none");
             minorbtn.forEach((btn) => btn.classList.add("none"));
-            timer.classList.add("anim");
+            if (
+              container.classList.contains("conteinerSV") &&
+              s == 0 &&
+              m == 0 &&
+              h == 0
+            ) {
+              timer.classList.remove("anim");
+              dotsss.forEach((dot) => {
+                dot.classList.add("animSV");
+              });
+            } else {
+              timer.classList.add("anim");
+              dotsss.forEach((dot) => {
+                dot.classList.remove("animSV");
+              });
+            }
             finishtxt.classList.remove("none");
             animbtn.classList.remove("none");
           }
@@ -141,12 +165,21 @@ start.addEventListener("click", () => {
       seconds.innerHTML = setZero(s);
       minutes.innerHTML = setZero(m);
       hours.innerHTML = setZero(h);
+      //
+      hh.style.strokeDashoffset = 570 - (570 * h) / 12;
+      mm.style.strokeDashoffset = 570 - (570 * m) / 60;
+      ss.style.strokeDashoffset = 570 - (570 * s) / 60;
+      sdot.style.transform = `rotate(${s * 6}deg)`;
+      mdot.style.transform = `rotate(${m * 6}deg)`;
+      hdot.style.transform = `rotate(${h * 12}deg)`;
+      //
     }, 1000);
     start.classList.add("none");
     pauseResume.classList.remove("none");
     minorbtn.forEach((btn) => btn.classList.add("none"));
-    Isrunning = true;
     pauseResume.innerHTML = "Pause";
+    Isrunning = true;
+    startIsDisabled = true
   }
 });
 cencel.addEventListener("click", () => {
@@ -158,9 +191,9 @@ cencel.addEventListener("click", () => {
   minutes.innerHTML = setZero(m);
   hours.innerHTML = setZero(h);
   start.classList.remove("none");
-  startIsDisabled = true;
   pauseResume.classList.add("none");
   minorbtn.forEach((btn) => btn.classList.remove("none"));
+  startIsDisabled = false;
   Isrunning = false;
 });
 pauseResume.addEventListener("click", () => {
@@ -194,7 +227,22 @@ pauseResume.addEventListener("click", () => {
             pauseResume.classList.add("none");
             cencel.classList.add("none");
             minorbtn.forEach((btn) => btn.classList.add("none"));
-            timer.classList.add("anim");
+            if (
+              container.classList.contains("conteinerSV") &&
+              s == 0 &&
+              m == 0 &&
+              h == 0
+            ) {
+              timer.classList.remove("anim");
+              dotsss.forEach((dot) => {
+                dot.classList.add("animSV");
+              });
+            } else {
+              timer.classList.add("anim");
+              dotsss.forEach((dot) => {
+                dot.classList.remove("animSV");
+              });
+            }
             finishtxt.classList.remove("none");
             animbtn.classList.remove("none");
           }
@@ -203,6 +251,12 @@ pauseResume.addEventListener("click", () => {
       seconds.innerHTML = setZero(s);
       minutes.innerHTML = setZero(m);
       hours.innerHTML = setZero(h);
+      hh.style.strokeDashoffset = 570 - (570 * h) / 12;
+      mm.style.strokeDashoffset = 570 - (570 * m) / 60;
+      ss.style.strokeDashoffset = 570 - (570 * s) / 60;
+      sdot.style.transform = `rotate(${s * 6}deg)`;
+      mdot.style.transform = `rotate(${m * 6}deg)`;
+      hdot.style.transform = `rotate(${h * 12}deg)`;
     }, 1000);
     minorbtn.forEach((btn) => btn.classList.add("none"));
     Isrunning = true;
@@ -210,10 +264,126 @@ pauseResume.addEventListener("click", () => {
 });
 animbtn.addEventListener("click", () => {
   timer.classList.remove("anim");
+  dotsss.forEach((dot) => {
+    dot.classList.remove("animSV");
+  });
   finishtxt.classList.add("none");
   cencel.classList.remove("none");
   start.classList.remove("none");
   pauseResume.classList.add("none");
   minorbtn.forEach((btn) => btn.classList.remove("none"));
   animbtn.classList.add("none");
+  Isrunning = false;
+});
+// I have an Idea to add some features and for that reason I have changed HTML and CSS already to add second design. Starting here, we will be working on the second version design of the clockwise, we may work differently as the above code was written rouhgly 3 month ago/
+const container = document.querySelector(".conteiner");
+const dots = document.querySelectorAll(".dots");
+const numbers = document.querySelectorAll("#numbers");
+const buttons = document.querySelectorAll(".buttons");
+const h1 = document.querySelectorAll("h1");
+const mainbtn = document.querySelectorAll(".mainbtn");
+const svg = document.querySelectorAll("svg");
+const circle = document.querySelectorAll("circle");
+const main = document.querySelector(".main");
+//
+const hh = document.querySelector("#hour");
+const mm = document.querySelector("#minute");
+const ss = document.querySelector("#second");
+const hdot = document.querySelector(".hdot");
+const mdot = document.querySelector(".mdot");
+const sdot = document.querySelector("#sdot");
+const dotsss = document.querySelectorAll(".dotsss");
+//
+
+function mainVersion() {
+  timer.classList.remove("timerSV");
+  container.classList.remove("conteinerSV");
+  minorbtn.forEach((btn) => {
+    btn.classList.remove("minorbtnSV");
+  });
+  dots.forEach((dot) => {
+    dot.classList.remove("dotsSV");
+  });
+  numbers.forEach((number) => {
+    number.classList.remove("clockNumbers");
+  });
+  buttons.forEach((button) => {
+    button.classList.remove("buttonsSV");
+  });
+  h1.forEach((h1) => {
+    h1.classList.remove("h1");
+  });
+  mainbtn.forEach((mainbtn) => {
+    mainbtn.classList.remove("innerSV");
+  });
+  main.classList.remove("mainSV");
+  svg.forEach((svg) => {
+    svg.classList.remove("add");
+  });
+  dotsss.forEach((dot) => {
+    dot.classList.remove("add");
+  });
+  if (!Isrunning) {
+    if (!animbtn.classList.contains("none")) {
+      timer.classList.add("anim");
+      dotsss.forEach((dot) => {
+        dot.classList.remove("animSV");
+      });
+    }
+  } else {
+    timer.classList.remove("anim");
+    dotsss.forEach((dot) => {
+      dot.classList.remove("animSV");
+    });
+  }
+}
+function secondVersion() {
+  timer.classList.add("timerSV");
+  container.classList.add("conteinerSV");
+  minorbtn.forEach((btn) => {
+    btn.classList.add("minorbtnSV");
+  });
+  dots.forEach((dot) => {
+    dot.classList.add("dotsSV");
+  });
+  numbers.forEach((number) => {
+    number.classList.add("clockNumbers");
+  });
+  buttons.forEach((button) => {
+    button.classList.add("buttonsSV");
+  });
+  h1.forEach((h1) => {
+    h1.classList.add("h1");
+  });
+  mainbtn.forEach((mainbtn) => {
+    mainbtn.classList.add("innerSV");
+  });
+  main.classList.add("mainSV");
+  svg.forEach((svg) => {
+    svg.classList.add("add");
+  });
+  dotsss.forEach((dot) => {
+    dot.classList.add("add");
+  });
+  if (!Isrunning) {
+    if (!animbtn.classList.contains("none")) {
+      timer.classList.remove("anim");
+      dotsss.forEach((dot) => {
+        dot.classList.add("animSV");
+      });
+    }
+  } else {
+    timer.classList.remove("anim");
+    dotsss.forEach((dot) => {
+      dot.classList.remove("animSV");
+    });
+  }
+}
+window.addEventListener("click", (e) => {
+  let target = e.target;
+  if (target.classList.contains("mainVersion")) {
+    mainVersion();
+  } else if (target.classList.contains("secondVersion")) {
+    secondVersion();
+  }
 });

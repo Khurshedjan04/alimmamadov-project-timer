@@ -14,7 +14,36 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   position: relative;
+  gap: 30px;
+  transition: all linear 0.2s;
+}
+.conteinerSV {
+  background-color: black;
+}
+.version {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  position: relative;
+  top: -100px;
+}
+.version .inner {
+  border: 1px solid rgb(255, 255, 255);
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: all linear 0.2s;
+}
+.version .inner:hover {
+  background-color: rgb(182, 182, 182);
+  color: rgb(36, 36, 36);
+  box-shadow: 5px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.innerSV {
+  border-color: rgb(255, 255, 255) !important;
+  background-color: transparent !important;
 }
 .timer {
   width: 600px;
@@ -25,6 +54,11 @@
   border: 2px solid rgb(255, 255, 255);
   border-radius: 15px;
   background-color: #2e143b;
+  transition: all linear 0.1s;
+}
+.timerSV {
+  border-color: transparent;
+  background-color: transparent;
 }
 .main {
   height: 80%;
@@ -33,18 +67,37 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+  transition: linear all 0.2s;
+}
+.mainSV {
+  gap: 90px;
 }
 h1 {
   font-size: 120px;
+  transition: all linear 0.1s;
+  z-index: 10;
+}
+.h1 {
+  font-size: 110px;
 }
 span {
   font-size: 100px;
+  transition: all linear 0.2s;
+}
+.dotsSV {
+  opacity: 0;
 }
 .buttons {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 15px;
+  position: relative;
+  top: 0px;
+  transition: all linear 0.2s;
+}
+.buttonsSV {
+  top: 100px;
 }
 .mainbtn {
   width: 120px;
@@ -55,10 +108,21 @@ span {
 }
 .minorbtn {
   width: 100px;
+  height: 20px;
   background-color: #574261;
   border: 1px solid white;
   border-radius: 10px;
   position: relative;
+  transition: all linear 0.2s;
+  z-index: 20;
+}
+.minorbtnSV {
+  width: 80px;
+  height: 25px;
+  transition: all linear 0.2s;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 50%;
 }
 .minut,
 .second,
@@ -67,6 +131,11 @@ span {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: all linear 0.2s;
+  gap: 0px;
+}
+.clockNumbers {
+  gap: 90px;
 }
 .mplus,
 .splus,
@@ -79,13 +148,18 @@ span {
   bottom: 15px;
 }
 .mainbtn:hover {
-  background-color: #e57cd9 !important;
+  background-color: rgb(182, 182, 182) !important;
+  color: rgb(36, 36, 36);
 }
 .minorbtn:hover {
-  background-color: #e57cd9 !important;
+  background-color: rgb(182, 182, 182);
+  color: rgb(36, 36, 36);
 }
 .none {
   display: none;
+}
+.add {
+  display: flex !important;
 }
 .anim {
   animation: anim 2s linear infinite alternate;
@@ -125,11 +199,49 @@ span {
     transform: rotate(5deg);
   }
 }
+.animSV {
+  animation: animSV 2s linear infinite alternate;
+}
+@keyframes animSV {
+  0% {
+    transform: rotate(25deg);
+  }
+  10% {
+    transform: rotate(-25deg);
+  }
+  20% {
+    transform: rotate(25deg);
+  }
+  30% {
+    transform: rotate(-25deg);
+  }
+  40% {
+    transform: rotate(25deg);
+  }
+  50% {
+    transform: rotate(-25deg);
+  }
+  60% {
+    transform: rotate(25deg);
+  }
+  70% {
+    transform: rotate(-25deg);
+  }
+  80% {
+    transform: rotate(25deg);
+  }
+  90% {
+    transform: rotate(-25deg);
+  }
+  100% {
+    transform: rotate(25deg);
+  }
+}
 .foranim {
   width: 300px;
   height: 50px;
   position: absolute;
-  top: 80%;
+  top: 85%;
   font-size: 20px;
   background-color: #574261;
   border: 1px solid white;
@@ -138,5 +250,45 @@ span {
 .finish {
   position: absolute;
   font-size: 45px;
-  top: 65%;
+  top: -50px;
+}
+svg {
+  display: none;
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-90deg);
+  transition: all linear .2s;
+}
+svg circle {
+  width: 100%;
+  height: 100%;
+  fill: transparent;
+  stroke: rgb(255, 255, 255);
+  stroke-width: 4px;
+  transform: translate(40px, 40px);
+}
+svg circle:nth-child(2) {
+  stroke: red;
+  stroke-dasharray: 570;
+}
+.dotsss {
+  width: 190px;
+  height: 190px;
+  position: absolute;
+  display: none;
+  justify-content: center;
+  z-index: 30;
+}
+.dotsss::before {
+  transform: translateY(-3px);
+  content: "";
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  position: absolute;
+  background-color: red;
+  box-shadow: 0 0 20px red, 0 0 60px red;
 }
